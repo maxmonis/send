@@ -1,6 +1,6 @@
 module.exports = {
   env: {
-    backendURL: 'http://localhost:4000',
-    frontendURL: 'http://localhost:3000',
+    backendURL: 'https://enigmatic-sea-01184.herokuapp.com/',
+    frontendURL: 'https://send.maxmonis.vercel.app/',
   },
 };

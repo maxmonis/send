@@ -8,6 +8,8 @@
     "build": "next build",
     "start": "next start"
   },
+  "repository": "https://github.com/maxmonis/send",
+  "author": "Max Monis <mmonis77@gmail.com>",
   "dependencies": {
     "axios": "^0.20.0",
     "formik": "^2.1.5",

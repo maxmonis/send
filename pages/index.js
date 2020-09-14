@@ -33,6 +33,10 @@ const Index = () => {
             >
               Copy URL
             </button>
+            <p className='text-center text-2xl my-10'>
+              Use this link to download your file on any device, or send the
+              link to anyone with whom you'd like to share the file
+            </p>
             <div style={{ height: '15rem' }} />
           </>
         ) : (
@@ -48,10 +52,10 @@ const Index = () => {
                   <span className='text-red-500 font-bold'>React Send</span>{' '}
                   allows you to privately share files which will be deleted
                   following download. This ensures that your data won't be
-                  floating around online in perpetuity. As a user, we allow
-                  uploads of larger files and you have the option to protect
-                  links with passwords and set a limit of up to 20 downloads
-                  before deletion.
+                  floating around online in perpetuity. Users are allowed to
+                  upload larger files and have the option to protect links with
+                  passwords and/or set a limit of up to 20 downloads before
+                  deletion.
                 </p>
                 {!user && (
                   <Link href='create-account'>

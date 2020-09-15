@@ -6,7 +6,7 @@ module.exports = {
         : 'http://localhost:4000',
     frontendURL:
       process.env.NODE_ENV === 'production'
-        ? 'https://send.maxmonis.vercel.app/'
+        ? 'https://send.maxmonis.vercel.app'
         : 'http://localhost:3000',
   },
 };

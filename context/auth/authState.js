@@ -17,6 +17,7 @@ const AuthState = ({ children }) => {
     try {
       const { data } = await client.post('/users', values);
       dispatch({ type: 'REGISTER_USER', payload: data.msg });
+      return values;
     } catch (error) {
       dispatch({ type: 'REGISTER_FAIL', payload: error.response.data.msg });
     }

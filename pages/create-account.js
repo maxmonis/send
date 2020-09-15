@@ -1,4 +1,5 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import Alert from '../components/Alert';
 import Layout from '../components/Layout';
 import authContext from '../context/auth/authContext';
@@ -6,7 +7,17 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
 const CreateAccount = () => {
-  const { registerUser, message } = useContext(authContext);
+  const { registerUser, logUserIn, message, authenticated } = useContext(
+    authContext
+  );
+  const [newUser, setNewUser] = useState(null);
+  const router = useRouter();
+  useEffect(() => {
+    authenticated && router.push('/');
+  }, [authenticated]);
+  useEffect(() => {
+    newUser && logUserIn(newUser);
+  }, [newUser]);
   const formik = useFormik({
     initialValues: {
       name: '',
@@ -20,10 +31,13 @@ const CreateAccount = () => {
         .email('Please enter a valid email'),
       password: Yup.string()
         .required('Password is required')
-        .min(6, 'Minimum length of password is 6'),
+        .min(6, 'Password must have at least 6 characters'),
     }),
-    onSubmit: (values) => {
-      registerUser(values);
+    onSubmit: async (values) => {
+      const user = await registerUser(values);
+      if (user) {
+        setNewUser({ email: user.email, password: user.password });
+      }
     },
   });
   const {

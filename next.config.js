@@ -1,6 +1,9 @@
 module.exports = {
   env: {
-    backendURL: 'http://localhost:4000',
+    backendURL:
+      process.env.NODE_ENV === 'production'
+        ? 'https://stormy-bastion-27700.herokuapp.com/'
+        : 'http://localhost:4000',
     frontendURL:
       process.env.NODE_ENV === 'production'
         ? 'https://send-nine.vercel.app'
